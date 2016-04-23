@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get 'sources/index'
+  get '/sources', to: 'sources#index', as: 'sources'
+  get '/about', to: 'home#about', as: 'about'
   root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
