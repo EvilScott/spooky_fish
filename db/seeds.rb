@@ -1,7 +1,7 @@
 types = {
     data: SourceType.create(name: 'Data'),
-    paper: SourceType.create(name: 'Paper'),
-    website: SourceType.create(name: 'Website'),
+    paper: SourceType.create(name: 'Papers'),
+    website: SourceType.create(name: 'Websites'),
 }
 
 sources = [
