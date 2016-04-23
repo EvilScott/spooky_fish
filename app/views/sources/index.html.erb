@@ -1,0 +1,14 @@
+<h1>Sources</h1>
+
+<ul>
+  <% @source_types.each do |source_type| %>
+    <li>
+      <%= source_type %>
+      <ul>
+      <% source_type.sources.each do |source| %>
+        <li><%= link_to source.name, source.url %></li>
+      <% end %>
+      </ul>
+    </li>
+  <% end %>
+</ul>
