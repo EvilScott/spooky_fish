@@ -1,0 +1,18 @@
+<h1>Gear#purchase</h1>
+<%= form_for @purchase, url: { action: 'submit' } do |f| %>
+    <%= f.hidden_field :action_type %>
+
+    <%= f.label :owner %>
+    <%= f.text_field :owner %>
+
+    <%= f.label :net_type %>
+    <%= f.select :net_type %>
+
+    <%= f.label :region %>
+    <%= f.select :region %>
+
+    <%= f.label :reason %>
+    <%= f.select :reason %>
+
+    <%= f.submit %>
+<% end %>
