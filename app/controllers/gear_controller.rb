@@ -8,6 +8,9 @@ class GearController < ApplicationController
 
   def sold
     @purchase = GearAction.new(action_type_id: 1) # TODO placeholder
+    @regions = Region.all
+    @reasons = Reason.all
+    @net_types = NetType.all
   end
 
   def submit
