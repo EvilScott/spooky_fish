@@ -34,6 +34,7 @@
 @lochmara: #008bc1;
 @cerulean: #00b3db;
 @offwhite: #eeeeee;
+@lighterblue: #00ddf7;
 
 @font-family-sans-serif: 'Open Sans Condensed', sans-serif;
 @font-size-large: ceil((@font-size-base * 1.5));
@@ -46,6 +47,7 @@
 @navbar-default-bg: @lochmara;
 @navbar-default-border: @lochmara;
 @navbar-default-brand-color: @bisonhide;
+@table-bg-accent: @lighterblue;
 
 div.body-container {
   min-height: 500px;
@@ -85,5 +87,11 @@ footer {
       height: 25px;
       margin-top: -5px;
     }
+  }
+}
+
+table.no-border {
+  td, th, tr {
+    border: 0 !important;
   }
 }
