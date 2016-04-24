@@ -6,7 +6,7 @@
       <%= source_type %>
       <ul>
       <% source_type.sources.each do |source| %>
-        <li><%= link_to source.name, source.url %></li>
+        <li><%= link_to source.name, source.url, target: '_blank' %></li>
       <% end %>
       </ul>
     </li>
