@@ -42,7 +42,7 @@ class GearController < ApplicationController
     end
 
     flash[:notice] = 'Recycling Report generated successfully'
-    redirect_to credits_path(id: credit.id)
+    redirect_to credits_path(credit_code: credit.credit_code)
   end
 
   private

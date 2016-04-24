@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post '/submit_recycle', to: 'gear#submit_recycle', as: 'submit_recycle'
   post '/submit', to: 'gear#submit', as: 'submit'
   get '/sources', to: 'sources#index', as: 'sources'
-  get '/credits/view/:id', to: 'credits#view', as: 'credits'
+  get '/credits/view/:credit_code', to: 'credits#view', as: 'credits'
 
   get '/about', to: 'home#about', as: 'about'
   root 'home#index'
