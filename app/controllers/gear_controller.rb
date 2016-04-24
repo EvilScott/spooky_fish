@@ -30,6 +30,21 @@ class GearController < ApplicationController
     redirect_to :back
   end
 
+  def submit_recycle
+    new_action = GearAction.new(gear_action_params)
+    if new_action.valid?
+      credit = Credit.generate
+      new_action.credit_id = credit.id
+      new_action.save
+    else
+      flash[:error] = new_action.errors.full_messages
+      return redirect_to :back
+    end
+
+    flash[:notice] = 'Recycling Report generated successfully'
+    redirect_to credits_path(id: credit.id)
+  end
+
   private
   def gear_action_params
     params.require(:gear_action).permit(:action_type_id, :owner, :net_type_id, :region_id, :reason_id,
