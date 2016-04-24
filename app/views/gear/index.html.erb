@@ -27,7 +27,7 @@
       <th>Net type</th>
       <th>Region</th>
       <th>Reason</th>
-      <th>Unconfirmed disposal</th>
+      <th>Confirmed recycle/disposal</th>
     </tr>
     </thead>
     <tbody>
@@ -38,7 +38,15 @@
         <td><%= report.net_type %></td>
         <td><%= report.region %></td>
         <td><%= report.reason || raw('<i>N/A</i>') %></td>
-        <td><%= report.unconfirmed_disposal ? raw('<span class="glyphicon glyphicon-ok"></span>') : '' %></td>
+        <td>
+          <% if !report.reason %>
+            <i>N/A</i>
+          <% elsif report.reason && !report.unconfirmed_disposal %>
+            <span class="glyphicon glyphicon-ok"></span>
+          <% else %>
+            <span class="glyphicon glyphicon-remove"></span>
+          <% end %>
+        </td>
       </tr>
     <% end %>
     </tbody>
