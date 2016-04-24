@@ -7,6 +7,8 @@
     <title><%= content_for?(:title) ? yield(:title) : "Cradle to Grave Fishing Gear Tracker" %></title>
     <%= csrf_meta_tags %>
 
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
+
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <!-- For third-generation iPad with high-resolution Retina display: -->
@@ -47,10 +49,10 @@
         </button>
         <a class="navbar-brand" href="/">Cradle to Grave Fishing Gear Tracker</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li><%= link_to 'File report', gear_path %></li>
-            <li><%= link_to 'Sources', sources_path %></li>
+          <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to 'Reports', gear_path %></li>
             <li><%= link_to 'About', about_path %></li>
+            <li><%= link_to 'Sources', sources_path %></li>
           </ul>
         </div>
       </div>

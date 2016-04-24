@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/gear', to: 'gear#index', as: 'gear'
+  get '/reports', to: 'gear#index', as: 'gear'
   get '/recycle', to: 'gear#recycle', as: 'recycle'
   post '/recycle', to: 'gear#submit_recycle', as: 'submit_recycle'
   get '/sold', to: 'gear#sold', as: 'sold'
