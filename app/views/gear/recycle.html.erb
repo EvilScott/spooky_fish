@@ -3,19 +3,21 @@
     <fieldset>
       <%= f.hidden_field :action_type_id %>
 
-      <div class="control-group">
-        <%= f.label :owner, class: 'control-label' %>
-        <%= f.text_field :owner %>
-      </div>
+      <div class="row">
+        <div class="form-group col-lg-4">
+          <%= f.label :owner, class: 'control-label' %>
+          <%= f.text_field :owner, class: 'form-control', autofocus: true %>
+        </div>
 
-      <div class="control-group">
-        <%= f.label :net_type, class: 'control-label' %>
-        <%= f.collection_select :net_type_id, NetType.all, :id, :to_s %>
-      </div>
+        <div class="form-group col-lg-4">
+          <%= f.label :net_type, class: 'control-label' %>
+          <%= f.collection_select :net_type_id, NetType.all, :id, :to_s, {}, class: 'form-control' %>
+        </div>
 
-      <div class="control-group">
-        <%= f.label :region, class: 'control-label' %>
-        <%= f.collection_select :region_id, Region.all.order(:region_name), :id, :to_s %>
+        <div class="form-group col-lg-4">
+          <%= f.label :region, class: 'control-label' %>
+          <%= f.collection_select :region_id, Region.all.order(:region_name), :id, :to_s, {}, class: 'form-control' %>
+        </div>
       </div>
 
       <div class="form-actions">
