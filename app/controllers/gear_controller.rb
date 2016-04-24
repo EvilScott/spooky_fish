@@ -4,7 +4,7 @@ class GearController < ApplicationController
     total_sold = actions.where(action_type: ActionType.sold)
     @reports = actions.first(50)
     @sold = total_sold.where('reason_id > 1').count
-    @disposed = total_sold.where('reason_id > 3').count
+    @disposed = total_sold.where('reason_id IN (2,3)').count
   end
 
   def recycle
