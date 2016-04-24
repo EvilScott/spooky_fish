@@ -12,9 +12,9 @@
 <div class="row">
   <p>Our assumption:</p>
   <h4>
-    Amount of replacement gear sold -
-    Amount of gear properly disposed or recycled =
-    Amount of derelict "ghost gear" in the ocean
+    <%= @sold %> <small>(Amount of replacement gear sold)</small> -
+    <%= @disposed %> <small>(Amount of gear properly disposed or recycled)</small> =
+    <b><%= @sold - @disposed %></b> <small>(Estimation of derelict "ghost gear" in the ocean)</small>
   </h4>
 </div>
 
@@ -43,5 +43,5 @@
     <% end %>
     </tbody>
   </table>
-  <p>First <%= @reports.length %> of <%= @report_count %>...</p>
+  <p>First <%= @reports.length %> of <%= GearAction.count %>...</p>
 </div>
