@@ -40,6 +40,12 @@ sources = [
         source_type: types[:paper],
         description: '2016 FAO draft report on potential marking of fishing gear so it can be recaptured',
         url: 'ftp://ftp.fao.org/FI/DOCUMENT/ec-marking/Inf3.pdf'
+    },
+    {
+        name: 'Global Ghost Gear Initiative',
+        source_type: types[:website],
+        description: 'To ensure safer, cleaner oceans by driving economically viable and sustainable solutions to the problem of ghost fishing gear globally',
+        url: 'http://www.ghostgear.org/'
     }
 ]
 
