@@ -1,28 +1,17 @@
-== README
+# Cradle to Grave Fishing Gear Tracker
+### Tracking ghost gear from the supply side
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Licensed [Creative Commons Attribution-ShareAlike 4.0 International](https://creativecommons.org/licenses/by-sa/4.0/)
 
-Things you may want to cover:
+Requirements:
+- Ruby >= 2.1.8
+- Rails >= 4.2.6
+- Postgres >= 9
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Installation:
+```
+$ git clone git@github.com:EvilScott/spooky_fish.git
+$ cd spooky_fish
+$ bundle install
+$ rails s
+```
