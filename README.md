@@ -1,3 +1,4 @@
+
 # Cradle to Grave Fishing Gear Tracker
 ### Tracking ghost gear from the supply side
 
@@ -12,6 +13,8 @@ Installation:
 ```
 $ git clone git@github.com:EvilScott/spooky_fish.git
 $ cd spooky_fish
+$ psql -c CREATE ROLE spooky_fish WITH CREATEDB
+$ rake db:setup
 $ bundle install
 $ rails s
 ```
