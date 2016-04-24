@@ -1,6 +1,7 @@
 class GearController < ApplicationController
   def index
-    @reports = GearAction.order(:created_at).all
+    @reports = GearAction.order(:created_at).first(50)
+    @report_count = GearAction.count
   end
 
   def recycle

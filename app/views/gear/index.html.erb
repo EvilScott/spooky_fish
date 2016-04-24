@@ -37,10 +37,11 @@
         <td><%= report.owner %></td>
         <td><%= report.net_type %></td>
         <td><%= report.region %></td>
-        <td><%= report.reason %></td>
+        <td><%= report.reason || raw('<i>N/A</i>') %></td>
         <td><%= report.unconfirmed_disposal %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
+  <p>First <%= @reports.length %> of <%= @report_count %>...</p>
 </div>

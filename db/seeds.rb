@@ -191,7 +191,37 @@ net_types = [
 ]
 
 sources.each { |source| Source.create(source) }
-reasons.each { |reason| Reason.create(reason) }
-regions.each { |region| Region.create(region) }
 action_types.each{ |action_type| ActionType.create(action_type)}
-net_types.each{ |net_type| NetType.create(net_type)}
+
+reasons = reasons.map { |reason| Reason.create(reason) }
+regions = regions.map { |region| Region.create(region) }
+net_types = net_types.map { |net_type| NetType.create(net_type)}
+owners = `cat /usr/share/dict/words`.split("\n")
+action_types = [ActionType.sold, ActionType.recycled]
+
+1000.times do
+  reason = reasons.sample
+  if reason.reason_type == 'Replace Recycled'
+    recycle_action = GearAction.create(
+        action_type: action_types.last,
+        owner: owners.sample.capitalize,
+        net_type: net_types.sample,
+        region: regions.sample,
+        credit: Credit.generate
+    )
+    GearAction.create(
+        action_type: action_types.first,
+        owner: owners.sample.capitalize,
+        net_type: net_types.sample,
+        region: regions.sample,
+        reason: reason,
+        credit: recycle_action.credit)
+  else
+    GearAction.create(
+        action_type: action_types.first,
+        owner: owners.sample.capitalize,
+        net_type: net_types.sample,
+        region: regions.sample,
+        reason: reason)
+  end
+end
