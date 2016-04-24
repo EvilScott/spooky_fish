@@ -1,0 +1,5 @@
+<h1>Credit <%= @id %></h1>
+<br>
+Credit Code: <%= @credit.to_s %>
+<br>
+<img src="<%= @credit.to_qr(200,200)%>" />
