@@ -46,7 +46,6 @@ class GearController < ApplicationController
       return render 'recycle'
     end
 
-    flash[:notice] = 'Recycling report generated successfully'
     redirect_to credits_path(credit_code: credit.credit_code)
   end
 

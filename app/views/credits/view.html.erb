@@ -1,5 +1,17 @@
-<h1>Credit <%= @credit.id %></h1>
+<h1 class="print-header"><%= image_tag 'c2glogo.png', class: 'print-logo img-responsive' %>
+Net Recycling Receipt</h1>
 <br>
-Credit Code: <%= @credit.to_s %>
+<div class="print-category-container">
+<span class="print-category"><span class="print-category-head">Owner:</span> <%= @action.owner %></span>
+  <br>
+  <span class="print-category"><span class="print-category-head">Date:</span> <%= @action.created_at %></span>
+  <br>
+<span class="print-category"><span class="print-category-head">Region:</span> <%= @action.region %></span>
+  <br>
+  <br>
+  <br>
+<span class="print-category"><span class="print-category-head">Credit Code:</span> <%= @credit.to_s %></span>
 <br>
-<img src="<%= @credit.to_qr(200,200)%>" />
+<span class="print-category"><span class="print-category-head">Credit Code QR:</span><br>
+<img src="<%= @credit.to_qr(200,200)%>" /></span>
+</div>
