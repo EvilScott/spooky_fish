@@ -1,7 +1,7 @@
 <h1>New gear purchase</h1>
-<%= form_for @purchase, url: { action: 'submit' } do |f| %>
+<%= form_for @sold, url: { action: 'submit' } do |f| %>
     <fieldset>
-      <%= f.hidden_field :action_type %>
+      <%= f.hidden_field :action_type_id %>
 
       <div class="control-group">
         <%= f.label :owner, class: 'control-label' %>
@@ -10,17 +10,17 @@
 
       <div class="control-group">
         <%= f.label :net_type, class: 'control-label' %>
-        <%= f.select :net_type, @net_types %>
+        <%= f.collection_select :net_type_id, NetType.all, :id, :to_s %>
       </div>
 
       <div class="control-group">
         <%= f.label :region, class: 'control-label' %>
-        <%= f.select :region, @regions %>
+        <%= f.collection_select :region_id, Region.all.order(:region_name), :id, :to_s %>
       </div>
 
       <div class="control-group">
         <%= f.label :reason, class: 'control-label' %>
-        <%= f.select :reason, @reasons %>
+        <%= f.collection_select :reason_id, Reason.all, :id, :to_s %>
       </div>
 
       <div class="control-group">
