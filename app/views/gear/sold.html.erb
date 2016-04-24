@@ -25,17 +25,15 @@
           <%= f.label :reason, 'Reason for purchase', class: 'control-label' %>
           <%= f.collection_select :reason_id, Reason.all, :id, :to_s, {}, class: 'form-control' %>
         </div>
-      </div>
 
-      <div class="row">
-        <div class="form-group col-lg-4">
+        <div class="form-group col-lg-4" id="disposal_receipt_section">
           <%= f.label_tag :recycling_credit_code %>
-          <%= f.text_field_tag :recycling_credit_code, '', class: 'form-control' %>
+          <%= f.text_field_tag :recycling_credit_code, '', class: 'form-control', disabled: true %>
         </div>
 
-        <div class="form-group col-lg-4">
+        <div class="form-group col-lg-4" id="recycling_credit_code_section">
           <%= f.label_tag :disposal_receipt %>
-          <%= f.text_field_tag :disposal_receipt, '', class: 'form-control' %>
+          <%= f.text_field_tag :disposal_receipt, '', class: 'form-control', disabled: true %>
         </div>
       </div>
 
