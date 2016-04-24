@@ -4,11 +4,11 @@ class GearController < ApplicationController
   end
 
   def recycle
-    @recycle = GearAction.new(action_type: ActionType.find_by_action_name('Recycled'))
+    @recycle = GearAction.new(action_type: ActionType.recycled)
   end
 
   def sold
-    @sold = GearAction.new(action_type: ActionType.find_by_action_name('Sold'))
+    @sold = GearAction.new(action_type: ActionType.sold)
   end
 
   def submit_sold
