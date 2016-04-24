@@ -215,13 +215,15 @@ action_types = [ActionType.sold, ActionType.recycled]
         net_type: net_types.sample,
         region: regions.sample,
         reason: reason,
-        credit: recycle_action.credit)
+        credit: recycle_action.credit,
+        unconfirmed_disposal: false)
   else
     GearAction.create(
         action_type: action_types.first,
         owner: owners.sample.capitalize,
         net_type: net_types.sample,
         region: regions.sample,
-        reason: reason)
+        reason: reason,
+        unconfirmed_disposal: !['New' 'Replace Disposed'].include?(reason.reason_type))
   end
 end

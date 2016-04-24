@@ -38,7 +38,7 @@
         <td><%= report.net_type %></td>
         <td><%= report.region %></td>
         <td><%= report.reason || raw('<i>N/A</i>') %></td>
-        <td><%= report.unconfirmed_disposal %></td>
+        <td><%= report.unconfirmed_disposal ? raw('<span class="glyphicon glyphicon-ok"></span>') : '' %></td>
       </tr>
     <% end %>
     </tbody>
