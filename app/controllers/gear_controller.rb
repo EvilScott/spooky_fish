@@ -10,38 +10,41 @@ class GearController < ApplicationController
     @sold = GearAction.new(action_type: ActionType.find_by_action_name('Sold'))
   end
 
-  def submit
-    # TODO simplify this, and separate endpoints for sold and recycle
-    unless gear_action_params[:recycling_credit_code].nil?
+  def submit_sold
+    @sold = GearAction.new(gear_action_params)
+
+    if gear_action_params[:reason_id] == 2
       credit = Credit.find_by_credit_code(gear_action_params[:recycling_credit_code])
       if credit.nil?
-        flash[:error] = 'Credit code not found'
-        return redirect_to :back
+        @sold.errors.add(:credit, ' not found')
+      else
+        @sold.credit = credit
       end
-      gear_action_params[:credit_id] = credit.id
     end
 
-    new_action = GearAction.create(gear_action_params)
-    if new_action.errors.empty?
-      flash[:notice] = 'Report generated successfully'
+    if @sold.valid?
+      @sold.save
+      flash[:notice] = 'Sold gear report generated successfully'
+      redirect_to gear_path
     else
-      flash[:error] = new_action.errors.full_messages
+      flash[:error] = @sold.errors.full_messages
+      render 'sold'
     end
-    redirect_to :back
   end
 
   def submit_recycle
-    new_action = GearAction.new(gear_action_params)
-    if new_action.valid?
+    @recycle = GearAction.new(gear_action_params)
+
+    if @recycle.valid?
       credit = Credit.generate
-      new_action.credit_id = credit.id
-      new_action.save
+      @recycle.credit = credit
+      @recycle.save
     else
-      flash[:error] = new_action.errors.full_messages
-      return redirect_to :back
+      flash[:error] = @recycle.errors.full_messages
+      return render 'recycle'
     end
 
-    flash[:notice] = 'Recycling Report generated successfully'
+    flash[:notice] = 'Recycling report generated successfully'
     redirect_to credits_path(credit_code: credit.credit_code)
   end
 

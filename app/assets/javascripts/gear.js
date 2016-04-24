@@ -25,4 +25,5 @@ $(function() {
                 .show();
         }
     });
+    $newGearForm.find('#gear_action_reason_id').change();
 });
