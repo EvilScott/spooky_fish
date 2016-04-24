@@ -1,6 +1,41 @@
-<h2>File a gear report</h2>
+<h2>Gear reports</h2>
 
-<ul>
-  <li><%= link_to 'Sold gear', sold_path %></li>
-  <li><%= link_to 'Recycled gear', recycle_path %></li>
-</ul>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-2">
+    <%= link_to 'File a new purchase report', sold_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+  <div class="col-lg-4">
+    <%= link_to 'File a recycled report', recycle_path, class: 'btn btn-primary btn-lg' %>
+  </div>
+</div>
+
+<div class="row">
+  <p>TODO estimation equation here</p>
+</div>
+
+<div class="row">
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Report type</th>
+      <th>Owner</th>
+      <th>Net type</th>
+      <th>Region</th>
+      <th>Reason</th>
+      <th>Unconfirmed disposal</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @reports.each do |report| %>
+      <tr>
+        <td><%= report.action_type %></td>
+        <td><%= report.owner %></td>
+        <td><%= report.net_type %></td>
+        <td><%= report.region %></td>
+        <td><%= report.reason %></td>
+        <td><%= report.unconfirmed_disposal %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
