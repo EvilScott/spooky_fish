@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= content_for?(:title) ? yield(:title) : "Cradle to Grave Fishing Gear Tracker" %></title>
+    <title><%= content_for?(:title) ? yield(:title) : 'cradle to grave fishing gear tracker' %></title>
     <%= csrf_meta_tags %>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700' rel='stylesheet' type='text/css'>
@@ -47,7 +47,10 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="/">Cradle to Grave Fishing Gear Tracker</a>
+        <a class="navbar-brand" href="<%= root_path %>">
+          <%= image_tag 'c2glogo.png', class: 'logo' %>
+          cradle to grave fishing gear tracker
+        </a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><%= link_to 'Reports', gear_path %></li>
