@@ -6,8 +6,8 @@ class GearAction < ActiveRecord::Base
   belongs_to :credit
 
   validates :owner, presence: true
-  validates :credit, absense: true, unless: :expect_credit?
-  validates :disposal_receipt, absense: true, unless: :expect_disposal?
+  validates :credit, absence: true, unless: :expect_credit?
+  validates :disposal_receipt, absence: true, unless: :expect_disposal?
 
   def is_sold?
     action_type == ActionType.find_by_action_name('Sold')

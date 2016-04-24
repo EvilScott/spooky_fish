@@ -11,18 +11,28 @@ class GearController < ApplicationController
   end
 
   def submit
+    # TODO simplify this, and separate endpoints for sold and recycle
+    unless gear_action_params[:recycling_credit_code].nil?
+      credit = Credit.find_by_credit_code(gear_action_params[:recycling_credit_code])
+      if credit.nil?
+        flash[:error] = 'Credit code not found'
+        return redirect_to :back
+      end
+      gear_action_params[:credit_id] = credit.id
+    end
+
     new_action = GearAction.create(gear_action_params)
     if new_action.errors.empty?
       flash[:notice] = 'Report generated successfully'
     else
       flash[:error] = new_action.errors.full_messages
     end
-    redirect_to sold_path
+    redirect_to :back
   end
 
   private
   def gear_action_params
     params.require(:gear_action).permit(:action_type_id, :owner, :net_type_id, :region_id, :reason_id,
-                                        :recycling_credit_code, :disposal_receipt)
+                                        :credit_id, :recycling_credit_code, :disposal_receipt)
   end
 end
