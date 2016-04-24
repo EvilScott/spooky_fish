@@ -51,19 +51,22 @@ reasons = [
         reason_type: 'Replace Recycled'
     },
     {
-        reason_type: 'Replace Lost(Stolen)'
+        reason_type: 'Replace Disposed'
     },
     {
-        reason_type: 'Replace Lost(Weather)'
+        reason_type: 'Replace Lost (Stolen)'
     },
     {
-        reason_type: 'Replace Lost(Damaged)'
+        reason_type: 'Replace Lost (Weather)'
     },
     {
-        reason_type: 'Replace Lost(Abandoned)'
+        reason_type: 'Replace Lost (Damaged)'
     },
     {
-        reason_type: 'Replace Lost(Unknown)'
+        reason_type: 'Replace Lost (Abandoned)'
+    },
+    {
+        reason_type: 'Replace Lost (Unknown)'
     }
 ]
 
