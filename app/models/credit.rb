@@ -6,7 +6,7 @@ class Credit < ActiveRecord::Base
 
   #view usage: <img src="<%= some_credit.to_qr (width, height)%>" />
   def to_qr(width = 200, height = 200)
-    qr = RQRCode::QRCode.new( 'someString', :size => 5, :level => :h )
+    qr = RQRCode::QRCode.new( credit_code, :size => 5, :level => :h )
     png = qr.to_img.resize(width,height)
     png.to_data_url
   end
